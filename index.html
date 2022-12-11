@@ -13,14 +13,29 @@
   <body onload="carregamento()">
     <img src="assets/spider man.gif" alt="" class="img">
     <div class="box">
+      <div id="fase1">
         <h1>Marvel - Card game</h1>
-        <p>Pontos jogador: <span id="jogador">0</span></p>
-        <p>Pontos máquina: <span id="maquina">0</span></p>
+        <p>Pontos jogador: <span id="jogador1">0</span></p>
+        <p>Pontos máquina: <span id="maquina1">0</span></p>
         <h1>Baralho restante do jogador</h1>
         <div id="baralhoJogador"></div>
         <h1>Baralho restante do Adversário</h1>
         <div id="baralhoMaquina"></div>
         <button onclick="simular()">Simular batalha</button>
+      </div>
+      <div id="fase2" style="display: none;">
+        <h1>Marvel - Card game</h1>
+        <p>Pontos jogador: <span id="jogador2">0</span></p>
+        <p class="space-bottom">Pontos máquina: <span id="maquina2">0</span></p>
+        <h1>Jogador vs Maquina</h1>
+        <div id="combate"></div>
+        <div id="resultado" class="space-top"></div>
+      </div>
+      <div id="fase3" style="display: none;">
+        <h1>Marvel - Card game</h1>
+        <img src="assets/trofeu.png" alt="" width="200px" class="space-top">
+        <div id="podio" class="space-top"></div>
+      </div>
     </div>
   </body>
 </html>

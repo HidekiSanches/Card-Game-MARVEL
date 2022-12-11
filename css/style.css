@@ -30,6 +30,7 @@ body {
     background-color: rgb(43,47,52,90%);
     width: 750px;
     padding: 20px;
+    height: 500px;
     text-align: center;
     border-radius: 10px;
     color: #fff;
@@ -48,7 +49,14 @@ button {
     font-size: 15px;
     border: none;
     cursor: pointer;
+    width: 100%;
 }
 button:hover {
     background-color: #910909;
+}
+.space-bottom {
+    margin-bottom: 50px;
+}
+.space-top {
+    margin-top: 50px;
 }
