@@ -77,6 +77,24 @@ const deck = [
   },
   { link: '<img src="./assets/wolverine.webp" width="150px">', att: 2, res: 3 },
   { link: '<img src="./assets/drax.webp" width="150px">', att: 4, res: 4 },
+  { link: '<img src="./assets/falcão.webp" width="150px">', att: 2, res: 3 },
+  { link: '<img src="./assets/gambit.webp" width="150px">', att: 3, res: 1 },
+  { link: '<img src="./assets/groot.webp" width="150px">', att: 3, res: 3 },
+  {
+    link: '<img src="./assets/jurggernaut.webp" width="150px">',
+    att: 3,
+    res: 3,
+  },
+  {
+    link: '<img src="./assets/mulher_invisivel.webp" width="150px">',
+    att: 2,
+    res: 2,
+  },
+  {
+    link: '<img src="./assets/senhor_fantastico.webp" width="150px">',
+    att: 3,
+    res: 2,
+  },
 ];
 var mao1 = [];
 var mao2 = [];
@@ -85,7 +103,7 @@ var pontos_maquina = 0;
 
 function carregamento() {
   for (let i = 0; mao1.length < 5; i++) {
-    let sorteio1 = Number(Math.floor(Math.random() * 26));
+    let sorteio1 = Number(Math.floor(Math.random() * 32));
 
     if (mao1 == ``) {
       mao1.push(deck[sorteio1]);
@@ -101,7 +119,7 @@ function carregamento() {
     }
   }
   for (let i = 0; mao2.length < 5; i++) {
-    let sorteio2 = Number(Math.floor(Math.random() * 26));
+    let sorteio2 = Number(Math.floor(Math.random() * 32));
 
     if (mao2 == ``) {
       mao2.push(deck[sorteio2]);
@@ -129,9 +147,9 @@ function simular() {
   let sorteio1 = Number(Math.floor(Math.random() * 5));
   let sorteio2 = Number(Math.floor(Math.random() * 5));
 
-  if (mao1[sorteio1] == `` || mao2[sorteio2] == ``) { 
-    simular()
-  }else{
+  if (mao1[sorteio1] == `` || mao2[sorteio2] == ``) {
+    simular();
+  } else {
     fase1.style = "display: none;";
     fase2.style = "display: block;";
 
@@ -164,55 +182,55 @@ function simular() {
     }
 
     for (let i = sorteio1; i < mao1.length - 1; i++) {
-        if (mao1[i] != ``){
-            mao1[i] = mao1[i + 1]
-        }
+      if (mao1[i] != ``) {
+        mao1[i] = mao1[i + 1];
+      }
     }
     for (let i = sorteio2; i < mao2.length - 1; i++) {
-        if (mao2[i] != ``){
-            mao2[i] = mao2[i + 1]
-        }
+      if (mao2[i] != ``) {
+        mao2[i] = mao2[i + 1];
+      }
     }
 
-    if (mao1[mao1.length - 1] != ``){
-        mao1[mao1.length - 1] = ``
+    if (mao1[mao1.length - 1] != ``) {
+      mao1[mao1.length - 1] = ``;
     }
-    if (mao2[mao2.length - 1] != ``){
-        mao2[mao2.length - 1] = ``
+    if (mao2[mao2.length - 1] != ``) {
+      mao2[mao2.length - 1] = ``;
     }
 
-    baralhoJogador.innerHTML = ``
-    baralhoMaquina.innerHTML = ``
+    baralhoJogador.innerHTML = ``;
+    baralhoMaquina.innerHTML = ``;
 
     for (let index = 0; index < mao1.length; index++) {
-        if (mao1[index] != ``){
-            baralhoJogador.innerHTML += mao1[index].link;
-            baralhoMaquina.innerHTML += mao2[index].link;
-        }
+      if (mao1[index] != ``) {
+        baralhoJogador.innerHTML += mao1[index].link;
+        baralhoMaquina.innerHTML += mao2[index].link;
+      }
     }
 
-    if (mao1[0] == ``){
-        podioRes()
+    if (mao1[0] == ``) {
+      podioRes();
     } else {
-        setTimeout(() => {
-            fase1.style = "display: block;";
-            fase2.style = "display: none;";
-          }, "3000");
+      setTimeout(() => {
+        fase1.style = "display: block;";
+        fase2.style = "display: none;";
+      }, "3000");
     }
   }
 }
-function podioRes(){
-    if (pontos_jogador == pontos_maquina){
-        podio.innerHTML = `<h1 style="color: blue;">Oloco meo! Ambos são igualmente bons!</h1>`
-    } else if (pontos_jogador > pontos_maquina){
-        podio.innerHTML = `<h1 style="color: green;">O jogador é o grande vencedor da partida com ${pontos_jogador} pontos!</h1>`
-    } else {
-        podio.innerHTML = `<h1 style="color: red;">O adversário venceu a partida com ${pontos_maquina} pontos! Vai lá treinar mais um pouquinho, jogador!</h1>`
-    }
+function podioRes() {
+  if (pontos_jogador == pontos_maquina) {
+    podio.innerHTML = `<h1 style="color: blue;">Oloco meo! Ambos são igualmente bons!</h1>`;
+  } else if (pontos_jogador > pontos_maquina) {
+    podio.innerHTML = `<h1 style="color: green;">O jogador é o grande vencedor da partida com ${pontos_jogador} pontos!</h1>`;
+  } else {
+    podio.innerHTML = `<h1 style="color: red;">O adversário venceu a partida com ${pontos_maquina} pontos! Vai lá treinar mais um pouquinho, jogador!</h1>`;
+  }
 
-    setTimeout(() => {
-        fase1.style = "display: none;";
-        fase2.style = "display: none;";
-        fase3.style= "display: block;";
-      }, "3000");
+  setTimeout(() => {
+    fase1.style = "display: none;";
+    fase2.style = "display: none;";
+    fase3.style = "display: block;";
+  }, "3000");
 }
